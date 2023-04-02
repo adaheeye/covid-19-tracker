@@ -1,0 +1,42 @@
+<div class="dashboard-container">
+  <div class="dashboard-item" *ngFor="let covidCase of covidCases">
+    <mat-card>
+      <mat-card-title>
+        <img class="flag" [src]="covidCase.countryInfo.flag" alt="Flag of {{covidCase.country}}">{{ covidCase.country }}
+      </mat-card-title>
+      <mat-card-content>
+        <div class="info-row">
+          <div class="info-item">
+            <span class="fas fa-globe-americas"></span> {{ covidCase.continent }}
+          </div>
+          <div class="info-item">
+            <span class="fas fa-clock"></span> {{ formatDate(covidCase.updated) }}
+          </div>
+        </div>
+        <div class="stats-row">
+          <div class="stats-item">
+            <div class="stats-label">Cases:</div>
+            <div class="stats-value">{{ covidCase.cases }}</div>
+            <div class="stats-change" [class.positive]="covidCase.todayCases >= 0" [class.negative]="covidCase.todayCases < 0">
+              <span class="fas fa-arrow-alt-circle-up"></span> {{ covidCase.todayCases | numberWithSign }}
+            </div>
+          </div>
+          <div class="stats-item">
+            <div class="stats-label">Recovered:</div>
+            <div class="stats-value">{{ covidCase.recovered }}</div>
+            <div class="stats-change" [class.positive]="covidCase.todayRecovered >= 0" [class.negative]="covidCase.todayRecovered < 0">
+              <span class="fas fa-arrow-alt-circle-up"></span> {{ covidCase.todayRecovered | numberWithSign }}
+            </div>
+          </div>
+          <div class="stats-item">
+            <div class="stats-label">Deaths:</div>
+            <div class="stats-value">{{ covidCase.deaths }}</div>
+            <div class="stats-change" [class.positive]="covidCase.todayDeaths >= 0" [class.negative]="covidCase.todayDeaths < 0">
+              <span class="fas fa-arrow-alt-circle-up"></span> {{ covidCase.todayDeaths | numberWithSign }}
+            </div>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

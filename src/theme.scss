@@ -1,0 +1,98 @@
+@use '@angular/material' as mat;
+@include mat.core();
+
+// This is where we define our Angular theme
+// Documentation: https://material.angular.io/guide/theming
+
+// this was generated from:
+// https://m2.material.io/inline-tools/color/
+// http://mcg.mbitson.com/#!?mcgpalette1=%23452020&themename=mcgtheme
+
+/* For use in src/lib/core/theming/_palette.scss */
+$md-my-custom-accent: (
+  50 : #fef9f9,
+  100 : #fcf0f0,
+  200 : #fae6e6,
+  300 : #f7dbdb,
+  400 : #f6d4d4,
+  500 : #f4cccc,
+  600 : #f3c7c7,
+  700 : #f1c0c0,
+  800 : #efb9b9,
+  900 : #ecadad,
+  A100 : #ffffff,
+  A200 : #ffffff,
+  A400 : #ffffff,
+  A700 : #ffffff,
+  contrast: (
+    50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #000000,
+    400 : #000000,
+    500 : #000000,
+    600 : #000000,
+    700 : #000000,
+    800 : #000000,
+    900 : #000000,
+    A100 : #000000,
+    A200 : #000000,
+    A400 : #000000,
+    A700 : #000000,
+  )
+);
+
+/* For use in src/lib/core/theming/_palette.scss */
+$md-my-custom-primary: (
+  50 : #fdf1f1,
+  100 : #f9dcdc,
+  200 : #f6c5c5,
+  300 : #f2aeae,
+  400 : #ef9c9c,
+  500 : #ec8b8b,
+  600 : #ea8383,
+  700 : #e77878,
+  800 : #e46e6e,
+  900 : #df5b5b,
+  A100 : #ffffff,
+  A200 : #ffffff,
+  A400 : #ffdfdf,
+  A700 : #ffc6c6,
+  contrast: (
+    50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #000000,
+    400 : #000000,
+    500 : #000000,
+    600 : #000000,
+    700 : #000000,
+    800 : #000000,
+    900 : #000000,
+    A100 : #000000,
+    A200 : #000000,
+    A400 : #000000,
+    A700 : #000000,
+  )
+);
+
+
+
+
+
+$my-primary: mat.define-palette($md-my-custom-primary, 500, 200, 700);
+$my-accent: mat.define-palette($md-my-custom-accent, 500, 200, 700);
+// The "warn" palette is optional and defaults to red if not specified.
+$my-warn: mat.define-palette(mat.$red-palette);
+
+$my-theme: mat.define-light-theme((
+  color: (
+    primary: $my-primary,
+    accent: $my-accent,
+    warn: $my-warn,
+  ),
+  typography: mat.define-typography-config(),
+  density: 0,
+));
+
+@include mat.all-component-themes($my-theme);

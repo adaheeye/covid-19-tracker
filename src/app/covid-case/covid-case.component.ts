@@ -42,7 +42,6 @@ export class CovidCaseComponent implements OnInit, OnDestroy {
     this.updateChart();
   }
 
-
   updateChart(): void {
     if (this.selectedCountry) {
       this.chartOptions = {
@@ -54,6 +53,7 @@ export class CovidCaseComponent implements OnInit, OnDestroy {
         },
         series: [this.selectedCountry.cases, this.selectedCountry.recovered, this.selectedCountry.deaths],
         labels: ['Cases', 'Recovered', 'Deaths'],
+        colors: ['#04779e', '#138750', '#bf0909'],
         responsive: [
           {
             breakpoint: 480,

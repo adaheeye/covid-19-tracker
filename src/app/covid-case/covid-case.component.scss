@@ -49,9 +49,10 @@
         margin-top: 20px;
         .column {
           padding: 15px;
-          min-width: 200px;
+          min-width: 180px;
           text-align: center;
           border-radius: 5px;
+          word-wrap: break-word;
           &.recovered {
             background: #138750;
           }

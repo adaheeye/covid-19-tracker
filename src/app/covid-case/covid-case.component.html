@@ -1,6 +1,6 @@
 <div class="container-fluid covid-19-cases">
   <div class="row">
-    <div class="col-3 countries">
+    <div class="col-3 countries p-0">
       <div class="card">
         <div class="card-header">
           <span class="fas fa-globe mr-2"></span>
@@ -26,7 +26,7 @@
         </div>
       </div>
     </div>
-    <div class="col-5 summary">
+    <div class="col-5 summary p-0">
       <div class="card">
         <div class="card-header">
           <img *ngIf="selectedCountry?.countryInfo?.flag" class="flag mr-2" [src]="selectedCountry?.countryInfo?.flag" alt="Flag of {{selectedCountry?.country}}">
@@ -64,7 +64,7 @@
         </div>
       </div>
     </div>
-    <div class="col-4">
+    <div class="col-4 p-0">
       <div class="card">
         <div class="card-header">
           <span class="fas fa-chart-line mr-2"></span>

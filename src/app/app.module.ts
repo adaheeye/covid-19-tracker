@@ -11,9 +11,9 @@ import { CovidCaseComponent } from './covid-case/covid-case.component';
 import {HttpClientModule} from "@angular/common/http";
 import {MatCardModule} from "@angular/material/card";
 import {NumberWithSignPipe} from "./covid-case/pipes/number-with-sign.pipe";
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {CovidService} from "./covid-case/service/covid-case.service";
-import {CountriesService} from "./country/countries.service"; // import the module here
+import {CountriesService} from "./country/countries.service";
+import {NgApexchartsModule} from "ng-apexcharts";
 
 @NgModule({
   declarations: [
@@ -30,7 +30,7 @@ import {CountriesService} from "./country/countries.service"; // import the modu
     MatIconModule,
     HttpClientModule,
     MatCardModule,
-    FontAwesomeModule // add the module to the imports array
+    NgApexchartsModule
   ],
   providers: [
     CovidService,

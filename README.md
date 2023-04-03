@@ -2,6 +2,9 @@
 
 This project is an Angular web application that displays information about COVID-19 cases in different countries. It uses the [NovelCOVID API](https://github.com/NovelCOVID/API) to retrieve the data.
 
+## Demo
+[Check out the live app here!](https://abdirahim888.github.io/covid-19-tracker)
+
 ## Installation
 
 1. Clone the repository to your local machine using `git clone`.

@@ -31,36 +31,46 @@
     <div class="col-12 col-md-6 col-lg-5 summary p-0">
       <div class="card">
         <div class="card-header">
-          <img *ngIf="selectedCountry?.countryInfo?.flag" src="assets/images/flag/flag_placeholder.png" [class]="'mr-2 flag flag-' + selectedCountry?.countryInfo?.iso2?.toLowerCase()"  alt="Flag of {{selectedCountry?.country}}"/>
+          <img *ngIf="selectedCountry?.countryInfo?.flag" src="assets/images/flag/flag_placeholder.png" [class]="'mr-2 flag flag-' + selectedCountry?.countryInfo?.iso2?.toLowerCase()" alt="Flag of {{selectedCountry?.country}}" />
           <span>{{selectedCountry?.country || 'Summary'}}</span>
         </div>
         <div class="card-body">
-          <div class="cases-header">
-            <div class="column cases">
-              <div>Total Cases</div>
-              <div>{{ selectedCountry?.cases | number }}</div>
+          <div class="row">
+            <div class="col-6">
+              <div class="column cases">
+                <div>Total Cases</div>
+                <div>{{ selectedCountry?.cases | number }}</div>
+              </div>
             </div>
-            <div class="column recovered">
-              <div>Total Recovered</div>
-              <div>{{ selectedCountry?.recovered | number }}</div>
+            <div class="col-6">
+              <div class="column recovered">
+                <div>Total Recovered</div>
+                <div>{{ selectedCountry?.recovered | number }}</div>
+              </div>
             </div>
-            <div class="column deaths">
-              <div>Total Deaths</div>
-              <div>{{ selectedCountry?.deaths | number }}</div>
+            <div class="col-6">
+              <div class="column deaths">
+                <div>Total Deaths</div>
+                <div>{{ selectedCountry?.deaths | number }}</div>
+              </div>
             </div>
-          </div>
-          <div class="cases-header">
-            <div class="column active">
-              <div>Active cases</div>
-              <div>{{ selectedCountry?.active | number }}</div>
+            <div class="col-6">
+              <div class="column active">
+                <div>Active cases</div>
+                <div>{{ selectedCountry?.active | number }}</div>
+              </div>
             </div>
-            <div class="column critical">
-              <div>In Critical</div>
-              <div>{{ selectedCountry?.critical | number }}</div>
+            <div class="col-6">
+              <div class="column critical">
+                <div>In Critical</div>
+                <div>{{ selectedCountry?.critical | number }}</div>
+              </div>
             </div>
-            <div class="column tests">
-              <div>Total Tests</div>
-              <div>{{ selectedCountry?.tests | number }}</div>
+            <div class="col-6">
+              <div class="column tests">
+                <div>Total Tests</div>
+                <div>{{ selectedCountry?.tests | number }}</div>
+              </div>
             </div>
           </div>
           <div class="last-updated mt-2">

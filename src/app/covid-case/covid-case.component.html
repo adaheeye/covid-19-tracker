@@ -1,35 +1,37 @@
 <div class="container-fluid covid-19-cases">
   <div class="row">
-    <div class="col-3 countries p-0">
+    <div class="col-12 col-md-6 col-lg-3 countries p-0">
       <div class="card">
         <div class="card-header">
           <span class="fas fa-globe mr-2"></span>
           <span>Countries</span>
         </div>
-        <div class="card-body" *ngFor="let covidCase of covidCases">
-          <div class="country-block" (click)="onCountrySelect(covidCase)">
-            <div class="country">
-              <img class="flag" [src]="covidCase.countryInfo.flag" alt="Flag of {{covidCase.country}}">
-              <span>{{covidCase.country}}</span>
-            </div>
-            <div class="details">
-              <span class="mr-2">Total cases</span>
-              <span class="mr-2">| Recovered</span>
-              <span>| Deaths</span>
-            </div>
-            <div class="details">
-              <span class="cases mr-2">{{covidCase.cases || 0}}</span>
-              <span class="recovered mr-2">| {{covidCase.recovered || 0}}</span>
-              <span class="deaths">| {{covidCase.deaths || 0}}</span>
+        <div class="card-body">
+          <div *ngFor="let covidCase of covidCases">
+            <div class="country-block" (click)="onCountrySelect(covidCase)">
+              <div class="country">
+                <img *ngIf="covidCase?.countryInfo?.flag" src="assets/images/flag/flag_placeholder.png" [class]="'mr-2 flag flag-' + covidCase?.countryInfo?.iso2?.toLowerCase()"  alt="Flag of {{covidCase?.country}}"/>
+                <span>{{covidCase.country}}</span>
+              </div>
+              <div class="details">
+                <span class="mr-2">Total cases</span>
+                <span class="mr-2">| Recovered</span>
+                <span>| Deaths</span>
+              </div>
+              <div class="details">
+                <span class="cases mr-2">{{covidCase.cases || 0}}</span>
+                <span class="recovered mr-2">| {{covidCase.recovered || 0}}</span>
+                <span class="deaths">| {{covidCase.deaths || 0}}</span>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="col-5 summary p-0">
+    <div class="col-12 col-md-6 col-lg-5 summary p-0">
       <div class="card">
         <div class="card-header">
-          <img *ngIf="selectedCountry?.countryInfo?.flag" class="flag mr-2" [src]="selectedCountry?.countryInfo?.flag" alt="Flag of {{selectedCountry?.country}}">
+          <img *ngIf="selectedCountry?.countryInfo?.flag" src="assets/images/flag/flag_placeholder.png" [class]="'mr-2 flag flag-' + selectedCountry?.countryInfo?.iso2?.toLowerCase()"  alt="Flag of {{selectedCountry?.country}}"/>
           <span>{{selectedCountry?.country || 'Summary'}}</span>
         </div>
         <div class="card-body">
@@ -67,7 +69,7 @@
         </div>
       </div>
     </div>
-    <div class="col-4 p-0">
+    <div class="col-12 col-lg-4 p-0">
       <div class="card">
         <div class="card-header">
           <span class="fas fa-chart-line mr-2"></span>

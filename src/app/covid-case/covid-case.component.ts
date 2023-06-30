@@ -3,7 +3,7 @@ import { CovidService } from './service/covid-case.service';
 import { CovidCase } from './model/covid-case.model';
 import { Subject, takeUntil } from 'rxjs';
 import { CountriesService } from '../country/countries.service';
-import { Country } from '../country/countries.model';
+import { Country } from '../country/countries.interface';
 import { AllCovidCase } from './model/all-covid-case.model';
 import { ChartComponent } from 'ng-apexcharts';
 import { ChartOptions } from './model/chart-options.model';
@@ -77,20 +77,7 @@ export class CovidCaseComponent implements OnInit, OnDestroy {
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe((countries) => {
         if (!!countries) {
-          this.countries = countries.sort(
-            (
-              a: { name: string; population: number },
-              b: { name: string; population: number }
-            ) => {
-              if (a.name === 'Canada') {
-                return -1;
-              }
-              if (b.name === 'Canada') {
-                return 1;
-              }
-              return b.population - a.population;
-            }
-          );
+          this.countries = countries;
         }
         this.getCovidCases();
       });
@@ -101,17 +88,7 @@ export class CovidCaseComponent implements OnInit, OnDestroy {
       .getCovidData()
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe((covidCases: CovidCase[]) => {
-        this.covidCases = covidCases.map((covidCase) => {
-          const country = this.countries.find(
-            (country) => country?.alpha3 === covidCase?.countryInfo?.iso3
-          );
-          if (country) {
-            covidCase.countryInfo.flag =
-              country?.file_url || covidCase.countryInfo.flag;
-          }
-          return covidCase;
-        });
-
+        this.covidCases = covidCases;
         // Sort the covidCases array by country
         this.covidCases.sort((a, b) => {
           if (a.country === 'Canada') {
@@ -124,7 +101,6 @@ export class CovidCaseComponent implements OnInit, OnDestroy {
         });
         this.selectedCountry = this.covidCases[0];
         this.onCountrySelect(this.selectedCountry);
-        console.log('covidCases: ', this.covidCases);
       });
   }
 
@@ -134,7 +110,6 @@ export class CovidCaseComponent implements OnInit, OnDestroy {
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe((allCovidCase: AllCovidCase) => {
         this.allCovidCase = allCovidCase;
-        console.log('allCovidCase: ', this.allCovidCase);
       });
   }
 

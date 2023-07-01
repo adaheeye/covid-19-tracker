@@ -47,3 +47,7 @@ Thumbs.db
 .angular/cache/*
 *.pack
 
+# ignore dist folder
+/dist
+
+

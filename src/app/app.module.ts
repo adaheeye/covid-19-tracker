@@ -14,6 +14,9 @@ import {NumberWithSignPipe} from "./covid-case/pipes/number-with-sign.pipe";
 import {CovidService} from "./covid-case/service/covid-case.service";
 import {CountriesService} from "./country/countries.service";
 import {NgApexchartsModule} from "ng-apexcharts";
+import { MessagesModule } from "primeng/messages";
+import {MessageModule} from "primeng/message";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 @NgModule({
   declarations: [
@@ -30,7 +33,10 @@ import {NgApexchartsModule} from "ng-apexcharts";
     MatIconModule,
     HttpClientModule,
     MatCardModule,
-    NgApexchartsModule
+    NgApexchartsModule,
+    MessagesModule,
+    MessageModule,
+    BrowserAnimationsModule
   ],
   providers: [
     CovidService,

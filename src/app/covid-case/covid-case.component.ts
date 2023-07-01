@@ -7,6 +7,7 @@ import { Country } from '../country/countries.interface';
 import { AllCovidCase } from './model/all-covid-case.model';
 import { ChartComponent } from 'ng-apexcharts';
 import { ChartOptions } from './model/chart-options.model';
+import { Message } from 'primeng/api';
 
 @Component({
   selector: 'app-covid-case',
@@ -20,6 +21,7 @@ export class CovidCaseComponent implements OnInit, OnDestroy {
   public selectedCountry: CovidCase | undefined;
   @ViewChild('chart') chart: ChartComponent | undefined;
   public chartOptions: Partial<ChartOptions> | undefined;
+  public msgs: Message[] = [];
   private unsubscribe$: Subject<void> = new Subject();
 
   constructor(
@@ -28,6 +30,7 @@ export class CovidCaseComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
+    this.showWarningMessage();
     this.getCountries();
     this.getAllCovidData();
   }
@@ -113,5 +116,13 @@ export class CovidCaseComponent implements OnInit, OnDestroy {
       });
   }
 
+  private showWarningMessage(): void {
+    this.msgs = [];
+    this.msgs.push({
+      severity: 'warn',
+      summary: 'Important Notice',
+      detail: 'Apologies, but our live data API for tracking COVID-19 has been discontinued.'
+    });
+  }
 
 }

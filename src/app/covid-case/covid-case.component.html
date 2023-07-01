@@ -1,3 +1,4 @@
+<p-messages [value]="msgs"></p-messages>
 <div class="container-fluid covid-19-cases">
   <div class="row">
     <div class="col-12 col-md-6 col-lg-3 countries p-0">
@@ -8,7 +9,9 @@
         </div>
         <div class="card-body">
           <div *ngFor="let covidCase of covidCases">
-            <div class="country-block" (click)="onCountrySelect(covidCase)">
+            <div class="country-block"
+                 [ngClass]="{'selected-country': covidCase.country === selectedCountry?.country}"
+                 (click)="onCountrySelect(covidCase)">
               <div class="country">
                 <img *ngIf="covidCase?.countryInfo?.flag" src="assets/images/flag/flag_placeholder.png" [class]="'mr-2 flag flag-' + covidCase?.countryInfo?.iso2?.toLowerCase()"  alt="Flag of {{covidCase?.country}}"/>
                 <span>{{covidCase.country}}</span>
@@ -79,7 +82,7 @@
         </div>
       </div>
     </div>
-    <div class="col-12 col-lg-4 p-0">
+    <div class="col-12 col-lg-4 p-0 charts">
       <div class="card">
         <div class="card-header">
           <span class="fas fa-chart-line mr-2"></span>

@@ -7,8 +7,8 @@ import {AllCovidCase} from "../model/all-covid-case.model";
 @Injectable()
 export class CovidService {
 
-  private url = 'https://corona.lmao.ninja/v2/countries';
-  private all_cases_url = 'https://corona.lmao.ninja/v2/all';
+  private url = /*'https://corona.lmao.ninja/v2/countries'*/'assets/api/countries.json';
+  private all_cases_url = /*'https://corona.lmao.ninja/v2/all'*/'assets/api/all.json';
 
   constructor(private http: HttpClient) { }
 

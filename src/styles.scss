@@ -4,6 +4,11 @@
 @import 'theme';
 @import "assets/style/flags.css";
 
+/* PrimeNG */
+@import "../node_modules/primeng/resources/primeng.min.css";
+@import "../node_modules/primeflex/primeflex.scss";
+@import "../node_modules/primeicons/primeicons.css";
+
 /* You can add global styles to this file, and also import other style files */
 
 
@@ -48,4 +53,89 @@ footer {
   bottom: 0;
   padding: 50px;
   background: mat-color($primary);
+}
+
+.p-message {
+  margin: 1rem 0;
+  border-radius: 4px;
+}
+.p-message .p-message-wrapper {
+  padding: 1rem 1.5rem;
+}
+.p-message .p-message-close {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: transparent;
+  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
+}
+.p-message .p-message-close:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+.p-message .p-message-close:focus {
+  outline: 0 none;
+  outline-offset: 0;
+  box-shadow: 0 0 0 1px #a6e8f0;
+}
+.p-message.p-message-info {
+  background: #B3E5FC;
+  border: solid #0891cf;
+  border-width: 0 0 0 6px;
+  color: #044868;
+}
+.p-message.p-message-info .p-message-icon {
+  color: #044868;
+}
+.p-message.p-message-info .p-message-close {
+  color: #044868;
+}
+.p-message.p-message-success {
+  background: #C8E6C9;
+  border: solid #439446;
+  border-width: 0 0 0 6px;
+  color: #224a23;
+}
+.p-message.p-message-success .p-message-icon {
+  color: #224a23;
+}
+.p-message.p-message-success .p-message-close {
+  color: #224a23;
+}
+.p-message.p-message-warn {
+  background: #FFECB3;
+  border: solid #d9a300;
+  border-width: 0 0 0 6px;
+  color: #6d5100;
+}
+.p-message.p-message-warn .p-message-icon {
+  color: #6d5100;
+}
+.p-message.p-message-warn .p-message-close {
+  color: #6d5100;
+}
+.p-message.p-message-error {
+  background: #FFCDD2;
+  border: solid #e60017;
+  border-width: 0 0 0 6px;
+  color: #73000c;
+}
+.p-message.p-message-error .p-message-icon {
+  color: #73000c;
+}
+.p-message.p-message-error .p-message-close {
+  color: #73000c;
+}
+.p-message .p-message-text {
+  font-size: 1rem;
+  font-weight: 500;
+}
+.p-message .p-message-icon {
+  font-size: 1.5rem;
+  margin-right: 0.5rem;
+}
+.p-message .p-message-summary {
+  font-weight: 700;
+}
+.p-message .p-message-detail {
+  margin-left: 0.5rem;
 }

@@ -2,7 +2,8 @@
 
 This project is an Angular web application that displays information about COVID-19 cases in different countries. It uses the [NovelCOVID API](https://github.com/NovelCOVID/API) to retrieve the data.
 
-![image](https://github.com/adaheeye/covid-19-tracker/assets/11170665/9502b371-468e-47f0-bf79-ea058f3cb45b)
+![image](https://github.com/adaheeye/covid-19-tracker/assets/11170665/0dda109b-638d-4569-a57c-2326a177e9c3)
+
 
 
 ## Demo
